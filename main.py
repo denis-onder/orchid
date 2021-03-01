@@ -1,5 +1,5 @@
-import speech_recognition as sr
 from gtts import gTTS
+import speech_recognition as sr
 import os
 import vlc
 import pafy
@@ -65,7 +65,7 @@ def download_mp3_from_youtube(url):
 
 
 def handle_speech(result):
-    text = result.lower()
+    text = result.lower().strip()
     if text.__contains__("orchid"):
         play_sound_file("hello")
         handle_speech_input()
@@ -81,7 +81,7 @@ def handle_speech(result):
         play_sound_file(file_name)
 
 
-# handle_speech("orchid")
+handle_speech("orchid")
 
 
 # !MUTED TESTING
