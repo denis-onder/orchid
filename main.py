@@ -6,6 +6,7 @@ import pafy
 import random
 
 r = sr.Recognizer()
+muted_testing = None
 
 
 def generate_random_file_name():
@@ -68,7 +69,8 @@ def handle_speech(result):
     text = result.lower().strip()
     if text.__contains__("orchid"):
         play_sound_file("hello")
-        handle_speech_input()
+        if not muted_testing:
+            handle_speech_input()
     elif text.__contains__("motorhead"):
         url = "https://www.youtube.com/watch?v=hF9Gr5waAJg"
         # play_url = get_youtube_play_url(url)
@@ -81,10 +83,6 @@ def handle_speech(result):
         play_sound_file(file_name)
 
 
-handle_speech("orchid")
-
-
-# !MUTED TESTING
 def handle_speech_input():
     with sr.Microphone() as source:
         print("Talk")
@@ -96,8 +94,15 @@ def handle_speech_input():
             handle_speech(result)
 
         except:
-            print("Error")
+            print("Talk again")
+            handle_speech_input()
 
 
 if __name__ == "__main__":
-    handle_speech_input()
+    muted_testing = True  # or False if not testing manually
+
+    if muted_testing:
+        # !MUTED TESTING
+        handle_speech("orchid")
+    else:
+        handle_speech_input()
