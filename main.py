@@ -1,7 +1,6 @@
 import speech_recognition as sr
 
 from commands import music, weather, hello, stop
-from utils import sound_helpers
 
 r = sr.Recognizer()
 muted_testing = None

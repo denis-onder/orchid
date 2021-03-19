@@ -1,7 +1,7 @@
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 
-import env
+from utils import env
 
 auth_manager = SpotifyOAuth(client_id=env.spotify_client_id,
                             client_secret=env.spotify_client_secret,

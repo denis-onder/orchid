@@ -1,16 +1,15 @@
 import requests
 import json
 
-from env import open_weather_api_key, city, weather_units
-from utils import sound_helpers
+from utils import sound_helpers, env
 
-units = {"metric": "Celsius", "imperial": "Fahrenheit"}[weather_units]
+units = {"metric": "Celsius", "imperial": "Fahrenheit"}[env.weather_units]
 
 
 def get_weather_data():
     response = requests.get(
         "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units={}"
-        .format(city, open_weather_api_key, weather_units))
+        .format(env.city, env.open_weather_api_key, env.weather_units))
 
     print(response)
 
