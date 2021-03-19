@@ -18,6 +18,12 @@ def handle_speech(result):
     elif text.__contains__("play"):
         music.play_track(text.split("play ")[1])
 
+    elif text.__contains__("pause"):
+        music.pause_playback()
+
+    elif text.__contains__("resume"):
+        music.resume_playback()
+
     elif text.__contains__("stop"):
         stop.stop_orchid()
 

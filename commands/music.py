@@ -20,6 +20,8 @@ for d in devices['devices']:
         device_id = d['id']
         break
 
+selected_track = None
+
 
 class InvalidSearchError(Exception):
     pass
@@ -40,3 +42,11 @@ def get_track_uri(name):
 def play_track(song_name):
     uri = get_track_uri(song_name)
     spotify.start_playback(device_id=device_id, uris=[uri])
+
+
+def pause_playback():
+    spotify.pause_playback(device_id)
+
+
+def resume_playback():
+    spotify.start_playback(device_id=device_id, uris=[selected_track])
