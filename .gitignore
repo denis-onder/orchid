@@ -1,4 +1,5 @@
 *.mp3
 !hello.mp3
 .env
+.cache*
 /__pycache__
