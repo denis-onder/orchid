@@ -1,3 +1,4 @@
+import subprocess
 import speech_recognition as sr
 
 from commands import music, weather, hello, stop
@@ -45,6 +46,7 @@ def handle_speech_input():
 
 
 if __name__ == "__main__":
+    subprocess.Popen('python server.py', shell=True, start_new_session=True)
     muted_testing = False  # or False if not testing manually
 
     if muted_testing:
